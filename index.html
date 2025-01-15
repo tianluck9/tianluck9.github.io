@@ -152,6 +152,117 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hexo+github搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="hexo博客搭建"><a href="#hexo博客搭建" class="headerlink" title="hexo博客搭建"></a>hexo博客搭建</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean //清楚缓存</span><br><span class="line">hexo g	   //加载</span><br><span class="line">hexo s	   //开启本地预览，http://localhost:4000</span><br><span class="line">hexo d	   //推送到远端，有时候网络不好</span><br></pre></td></tr></table></figure>
+
+<p>博客是markdown文档写的，存放地址：</p>
+<blockquote>
+<p>T:\个人博客\blog\source_posts</p>
+</blockquote>
+<p>更改主题样式</p>
+<blockquote>
+<p>现在用的是yilia</p>
+<p>T:\个人博客\blog\themes\yilia</p>
+</blockquote>
+<p>每次更改，都要重新推送一次</p>
+<h1 id="hexo搭建过程"><a href="#hexo搭建过程" class="headerlink" title="hexo搭建过程"></a>hexo搭建过程</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br><span class="line">npm install -g cnpm //安装cnpm，提速</span><br><span class="line">npm config list //查看镜像源地址：registry = &quot;https://registry.npmmirror.com&quot;</span><br><span class="line">cnpm install -g hexo-cli</span><br><span class="line">hexo -v //安装hexo成功</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/lucky_tian/pic-bed/raw/master/img/202501152152406.png"></p>
+<h2 id="建立blog目录"><a href="#建立blog目录" class="headerlink" title="建立blog目录"></a>建立blog目录</h2><blockquote>
+<p>T:\个人博客\blog</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo init 		//初始化一个博客</span><br><span class="line">hexo s 	  		//本地启动，http://localhost:4000</span><br><span class="line">hexo n &quot;文章名字&quot; //新建一篇博客，可以往里面写内容了</span><br><span class="line">hexo clean		//清理</span><br><span class="line">hexo g			//生成</span><br><span class="line">hexo s			//启动</span><br></pre></td></tr></table></figure>
+
+<h2 id="把博客部署到远端"><a href="#把博客部署到远端" class="headerlink" title="把博客部署到远端"></a>把博客部署到远端</h2><ul>
+<li>在github上创建一个新仓库</li>
+</ul>
+<blockquote>
+<p>ownername.github.io</p>
+<p>ownername一定要是自己的昵称</p>
+</blockquote>
+<ul>
+<li>装一个git插件</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在blog目录下编辑_config.yml文件</li>
+</ul>
+<blockquote>
+<p>找到最后的部分</p>
+<p>deploy:<br> type: git<br> repo: <a target="_blank" rel="noopener" href="https://github.com/tianluck9/tianluck9.github.io.git">https://github.com/tianluck9/tianluck9.github.io.git</a><br> branch: master</p>
+</blockquote>
+<ul>
+<li>部署到远端</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br><span class="line">之后输入github账号和密码</span><br><span class="line">成功会返回INFO Deploy done:git</span><br></pre></td></tr></table></figure>
+
+<p>访问博客地址：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://tianluck9.github.io/">https://tianluck9.github.io</a></p>
+</blockquote>
+<h2 id="自定义博客主题"><a href="#自定义博客主题" class="headerlink" title="自定义博客主题"></a>自定义博客主题</h2><p>使用yilia，从github上克隆下来（由于网络关系，现在我已经复制到gitee上）：</p>
+<blockquote>
+<p>git clone <a target="_blank" rel="noopener" href="https://gitee.com/lucky_tian/hexo-theme-yilia.git">https://gitee.com/lucky_tian/hexo-theme-yilia.git</a></p>
+</blockquote>
+<p>把克隆下来的仓库放到下面地址：</p>
+<blockquote>
+<p>T:\个人博客\blog\themes\</p>
+</blockquote>
+<p>把yilia主题配置到自己的博客里</p>
+<blockquote>
+<p>编辑文件：T:\个人博客\blog_config.yml</p>
+<p>修改配置：theme: yilia</p>
+</blockquote>
+<p>刷新，依次执行以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2025/01/15/hexo+github%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
